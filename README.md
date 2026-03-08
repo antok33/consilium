@@ -162,12 +162,6 @@ RANKED-CHOICE VOTE TALLY (Points: 1st=3, 2nd=2, 3rd=1):
 - Ensures fair evaluation and prevents bias toward own work
 - Increases voting integrity and objectivity
 
-**Smart Conditional Summarization**
-- Summarization only activates when total content exceeds 50,000 characters
-- For smaller debates (< 50K chars), full context is preserved
-- Reduces API costs and maintains fidelity when possible
-- When active, achieves 60-80% token reduction while preserving key information
-
 ## Project Structure
 
 ```
