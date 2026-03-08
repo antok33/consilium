@@ -49,12 +49,15 @@ build-docker:
 
 # Run Docker container
 run-docker:
-	@echo "Starting Consilium in Docker..."
+	@echo "Starting Consilium in Docker (detached mode)..."
 	@echo "Web interface will be available at http://localhost:8080"
-	docker run -p 8080:8080 \
+	docker run -d -p 8080:8080 \
+		--name consilium \
 		--env-file .env \
 		-v $(PWD)/output:/app/output \
 		consilium:latest
+	@echo "Container started! Check logs with: docker logs consilium"
+	@echo "Stop with: make stop-docker"
 
 # Run Docker container in background
 run-docker-bg:
