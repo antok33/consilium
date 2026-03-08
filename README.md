@@ -314,31 +314,6 @@ results = orchestrator.run()
 - **Token Usage**: 150K-300K tokens (with summarization)
 - **Memory Optimization**: 60-80% token reduction through intelligent summarization
 
-## Troubleshooting
-
-### AWS Credentials Error
-
-```bash
-# Verify .env
-cat .env
-
-# Test Bedrock access
-aws bedrock list-foundation-models --region us-east-1
-```
-
-### Port Already in Use
-
-```bash
-uv run python src/cli.py web-app --port 8080
-```
-
-### Module Not Found
-
-```bash
-make clean
-make install
-```
-
 ## Docker
 
 ### Build
