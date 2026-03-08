@@ -287,25 +287,6 @@ docker run -p 8080:8080 \
   consilium:latest
 ```
 
-## API Reference
-
-```python
-from core import run_debate, save_final_proposal
-
-# Run with progress tracking
-def my_progress(msg):
-    print(f">> {msg}")
-
-results = run_debate(
-    goal="Choose a database...",
-    resources="Additional context...",
-    progress_callback=my_progress
-)
-
-# Save results
-save_final_proposal(results, Path("output/proposal.md"))
-```
-
 ## License
 
 MIT License
