@@ -208,42 +208,6 @@ Strategy & Planning:
 - Plan migration strategy
 ```
 
-## How It Works
-
-### Memory Management
-
-Intelligent compression at each phase:
-
-- **After Phase 1**: Proposals compressed ~70% (5000 chars → ~500 words)
-- **After Phase 2**: Critiques synthesized ~80% (15K chars → ~800 words)
-- **Before Phase 4**: V2 proposals → key points ~70% reduction
-
-**Benefits:**
-- 60-80% cost reduction
-- No context overflow
-- Faster responses
-- Scalable to complex debates
-
-### Progress Tracking
-
-The orchestrator uses callbacks to report progress:
-
-```python
-def _log_progress(self, message: str):
-    """Log to console and callback."""
-    print(message)
-    if self.progress_callback:
-        self.progress_callback(message)
-```
-
-The web interface captures these in real-time:
-
-```python
-def progress_callback(message):
-    progress_log.append(message)
-    yield current_log  # Stream to UI
-```
-
 ## Development
 
 ### Running Tests
