@@ -10,20 +10,14 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Install uv (fast Python package manager)
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-ENV PATH="/root/.cargo/bin:$PATH"
-
-# Copy dependency files
+# Copy dependency files first
 COPY pyproject.toml ./
-COPY uv.lock ./
 
-# Install Python dependencies
-RUN uv pip install --system -e .
+# Install Python dependencies directly with pip
+RUN pip install --no-cache-dir -e .
 
 # Copy source code
 COPY src/ ./src/
-COPY README.md ./
 
 # Create output directory
 RUN mkdir -p /app/output
