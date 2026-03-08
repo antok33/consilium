@@ -162,12 +162,6 @@ RANKED-CHOICE VOTE TALLY (Points: 1st=3, 2nd=2, 3rd=1):
 - Ensures fair evaluation and prevents bias toward own work
 - Increases voting integrity and objectivity
 
-**Smart Conditional Summarization**
-- Summarization only activates when total content exceeds 50,000 characters
-- For smaller debates (< 50K chars), full context is preserved
-- Reduces API costs and maintains fidelity when possible
-- When active, achieves 60-80% token reduction while preserving key information
-
 ## Project Structure
 
 ```
@@ -246,15 +240,6 @@ self.councillors = [
 ]
 ```
 
-### Adjust Summarization
-
-Edit `src/memory/summarizer.py`:
-
-```python
-# Change summary length
-prompt += "Keep under 300 words..."
-```
-
 ### Progress Callback
 
 Use progress tracking in your code:
@@ -271,12 +256,6 @@ orchestrator = Orchestrator(
 )
 results = orchestrator.run()
 ```
-
-## Performance
-
-- **API Calls**: ~20-25 LLM invocations
-- **Token Usage**: 150K-300K tokens (with summarization)
-- **Memory Optimization**: 60-80% token reduction through intelligent summarization
 
 ## Docker
 
@@ -327,14 +306,6 @@ results = run_debate(
 save_final_proposal(results, Path("output/proposal.md"))
 ```
 
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Add tests for new functionality
-4. Run `make test` to verify
-5. Submit a pull request
-
 ## License
 
 MIT License
@@ -347,9 +318,3 @@ MIT License
   - LLM Debate frameworks
   - Multi-agent consensus systems
   - ChatEval evaluation protocols
-
-## Support
-
-- **Issues**: [GitHub Issues]
-- **Tests**: `make test`
-- **Help**: `uv run python src/cli.py --help`
