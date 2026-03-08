@@ -268,23 +268,10 @@ make build-docker
 ### Run
 
 ```bash
-# Foreground
 make run-docker
-
-# Background
-make run-docker-bg
 
 # Stop
 make stop-docker
-```
-
-### Custom
-
-```bash
-docker run -p 8080:8080 \
-  --env-file .env \
-  -v $(PWD)/output:/app/output \
-  consilium:latest
 ```
 
 ## License

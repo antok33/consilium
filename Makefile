@@ -59,16 +59,6 @@ run-docker:
 	@echo "Container started! Check logs with: docker logs consilium"
 	@echo "Stop with: make stop-docker"
 
-# Run Docker container in background
-run-docker-bg:
-	@echo "Starting Consilium in Docker (background)..."
-	docker run -d -p 8080:8080 \
-		--name consilium \
-		--env-file .env \
-		-v $(PWD)/output:/app/output \
-		consilium:latest
-	@echo "Container started! Access at http://localhost:8080"
-	@echo "Stop with: docker stop consilium"
 
 # Stop Docker container
 stop-docker:
