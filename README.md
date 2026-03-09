@@ -148,7 +148,7 @@ RANKED-CHOICE VOTE TALLY (Points: 1st=3, 2nd=2, 3rd=1):
 🏆 WINNER: Proposal C with 11 points
 ```
 
-### Key Improvements
+### Voting System
 
 **Ranked-Choice Voting System**
 - Each councillor ranks 3 proposals instead of voting for just one
@@ -226,37 +226,6 @@ make run-docker    # Run in Docker
 make clean         # Clean generated files
 ```
 
-## Configuration
-
-### Modify Councillors
-
-Edit `src/orchestrator/engine.py`:
-
-```python
-self.councillors = [
-    opus_councillor,        # Keep or replace
-    nova_pro_councillor,   # Keep or replace
-    # Add more councillors
-]
-```
-
-### Progress Callback
-
-Use progress tracking in your code:
-
-```python
-from orchestrator import Orchestrator
-
-def my_callback(message):
-    print(f"Progress: {message}")
-
-orchestrator = Orchestrator(
-    goal="My goal",
-    progress_callback=my_callback
-)
-results = orchestrator.run()
-```
-
 ## Docker
 
 ### Build
@@ -281,8 +250,4 @@ MIT License
 ## Acknowledgments
 
 - **Inspiration**: [llm-council](https://github.com/karpathy/llm-council) by Andrej Karpathy
-- Research foundations:
-  - Society of Mind (Minsky)
-  - LLM Debate frameworks
-  - Multi-agent consensus systems
-  - ChatEval evaluation protocols
+
